@@ -58,6 +58,7 @@ def add_company(request:Request,user_id:int,company:str,db:Session=Depends(get_d
     if csrf_token_db==csrf_token_req:
         data_company=getData(company)
         bot=Analizer(data_company)
+        bot.evaluate_params()
         db_company=Companies(
         user_id=user_id,
         name=bot.company['name'],
