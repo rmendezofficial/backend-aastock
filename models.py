@@ -17,7 +17,7 @@ class Companies(Base):
     
     id=Column(Integer,primary_key=True,index=True)
     user_id=Column(Integer)
-    name=Column(String(50),unique=True)
+    name=Column(String(50))
     qtotalrevenue=Column(Float,default=None)
     qtotalrevenue1=Column(Float,default=None)
     qtotalrevenue2=Column(Float,default=None)
