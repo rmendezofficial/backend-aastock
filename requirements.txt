@@ -11,3 +11,4 @@ aiomysql
 pillow
 python-multipart
 bcrypt
+yfinance
