@@ -36,8 +36,8 @@ def get_db():
     
         
 @router.get('/',status_code=status.HTTP_200_OK)
-def get_companies(db:Session=Depends(get_db)):
-    data_company=list(db.query(Companies))    
+def get_companies(user_id:int,db:Session=Depends(get_db),user_auth:Users=Depends(current_user)):
+    data_company=list(db.query(Companies).filter(Companies.user_id==user_id))    
     data={'data':data_company}
     return data
 
