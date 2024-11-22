@@ -51,7 +51,7 @@ class Analizer():#analizar la data y retornar un nuevo json con la data y los an
             r=q_total_revenue.iloc[counter]
             counter+=1
             if not math.isnan(r):
-                results.append(float(r/100))                
+                results.append(float(r))                
         self.company[f'{name}']=results
         
     def evaluate_params(self):
