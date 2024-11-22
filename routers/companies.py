@@ -126,7 +126,8 @@ async def delete_company(request:Request,company_id:int,db:Session=Depends(get_d
     
 @router.get('/get_company/{company_id}',status_code=status.HTTP_200_OK)
 async def get_company(company_id:int,db:Session=Depends(get_db)):
-    data_company=getData('AMZN')
+    company_db=db.query(Companies).filter(Companies.id==company_id).first()
+    data_company=getData(f'{company_db.name}')
     bot=Analizer(data_company)
     bot.evaluate_params()
     data={'data':bot.company}
